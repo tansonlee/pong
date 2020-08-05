@@ -1,8 +1,8 @@
 class Paddle {
-	constructor(x) {
+	constructor() {
 		this.w = 10;
 		this.h = 70;
-		this.pos = createVector(x, height / 2);
+		this.speed = 8;
 	}
 
 	show() {
@@ -13,11 +13,15 @@ class Paddle {
 
 	move(dir) {
 		if (dir === "UP") {
-			this.pos.y -= 10;
+			this.pos.y -= this.speed;
 		} else if (dir === "DOWN") {
-			this.pos.y += 10;
+			this.pos.y += this.speed;
 		}
 
 		this.pos.y = constrain(this.pos.y, this.h / 2, height - this.h / 2);
+	}
+
+	reset() {
+		this.pos.y = height / 2;
 	}
 }

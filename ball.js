@@ -35,14 +35,35 @@ class Ball {
 		) {
 			// if ball has the right y coordinate
 			if (this.pos.y >= paddleTop && this.pos.y <= paddleBottom) {
-				return true;
+				const yoff = this.pos.y - paddle.pos.y;
+				return yoff;
 			}
 		}
-		return false;
+		return null;
 	}
 
 	setPos(x, y) {
 		this.pos.x = x;
 		this.pos.y = y;
+	}
+
+	reset() {
+		this.pos.x = width / 2;
+		this.pos.y = height / 2;
+		this.vel.x = 1;
+		this.vel.y = 0;
+	}
+
+	isOffScreen() {
+		return this.pos.x > width || this.pos.x < 0;
+	}
+
+	reflect(angle) {
+		// flip becomes -1 to flip or 1 not to flip
+		// const flip = this.vel.x > 0 ? -1 : 1;
+		const newVel = p5.Vector.fromAngle(angle);
+		// newVel.x *= flip;
+		newVel.setMag(this.speed);
+		this.vel = newVel;
 	}
 }
