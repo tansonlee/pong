@@ -30,4 +30,11 @@ function draw() {
 		p2.y = height / 2 + i * 30;
 		line(p1.x, p1.y, p2.x, p2.y);
 	}
+	for (let i = -floor(lines / 2); i < ceil(lines / 2); i++) {
+		const p1 = createVector(35, height / 2 + d * i);
+		const p2 = createVector();
+		p2.x = 200;
+		p2.y = height / 2 + i * 30;
+		line(p1.x, p1.y, p2.x, p2.y);
+	}
 }
