@@ -2,11 +2,12 @@ class Paddle {
 	constructor() {
 		this.w = 10;
 		this.h = 70;
-		this.speed = 8;
+		this.speed = 5;
 	}
 
 	show() {
-		fill(0);
+		fill(20, 33, 61);
+		stroke(252, 163, 17);
 		rectMode(CENTER);
 		rect(this.pos.x, this.pos.y, this.w, this.h);
 	}

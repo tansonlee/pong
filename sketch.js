@@ -2,15 +2,20 @@ let ball;
 let left;
 let right;
 
+let leftScore = 0;
+let rightScore = 0;
+
 function setup() {
 	createCanvas(600, 400);
 	ball = new Ball();
 	left = new LeftPaddle();
 	right = new RightPaddle();
+	textSize(32);
+	textAlign(CENTER, CENTER);
 }
 
 function draw() {
-	background(200);
+	background(20, 33, 61);
 	ball.show();
 	ball.update();
 
@@ -31,9 +36,20 @@ function draw() {
 		ball.reflect(angle);
 	}
 
-	if (ball.isOffScreen()) {
+	if (ball.isOffRight()) {
+		leftScore++;
 		reset();
 	}
+	if (ball.isOffLeft()) {
+		rightScore++;
+		reset();
+	}
+
+	line(width / 2, 0, width / 2, height);
+	fill(255);
+	stroke(255);
+	text(leftScore, width / 2 - 50, 50);
+	text(rightScore, width / 2 + 50, 50);
 }
 
 const reset = () => {

@@ -2,12 +2,13 @@ class Ball {
 	constructor() {
 		this.pos = createVector(width / 2, height / 2);
 		this.vel = createVector(1, 0);
-		this.speed = 7;
+		this.speed = 5;
 		this.d = 10;
 	}
 
 	show() {
-		fill(0);
+		fill(255);
+		stroke(255);
 		ellipse(this.pos.x, this.pos.y, this.d, this.d);
 	}
 
@@ -54,8 +55,11 @@ class Ball {
 		this.vel.y = 0;
 	}
 
-	isOffScreen() {
-		return this.pos.x > width || this.pos.x < 0;
+	isOffRight() {
+		return this.pos.x > width;
+	}
+	isOffLeft() {
+		return this.pos.x < 0;
 	}
 
 	reflect(angle) {
