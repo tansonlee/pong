@@ -2,6 +2,8 @@
 
 ### A 2-player game of Pong
 
+Link to the hosted project: [Pong](https://tansonlee.github.io/pong/)
+
 How to play:
 
 -   Left player uses "**a**" and "**z**" to move up and down
